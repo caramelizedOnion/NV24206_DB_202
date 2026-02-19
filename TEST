@@ -1,1 +1,16 @@
 TEST
+docker run -d --name mongodb -p 27017:27017 mongo:7
+ docker ps
+ docker exec -it mongodb mongosh
+
+ #to create a database
+ use "name of the db"
+
+ #to create a collection
+db.createCollection("name of the collection")
+
+#to insert a document
+db."collectionName".insertOne({Column name: value, Column name: value})
+
+#output the documents
+db."collectionName".find()
