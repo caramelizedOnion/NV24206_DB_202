@@ -1,16 +1,34 @@
-TEST
-docker run -d --name mongodb -p 27017:27017 mongo:7
- docker ps
- docker exec -it mongodb mongosh
+#TEST
+#When you reopen the Codespace, run one of these commands depending on the container state.
+
+#If the mongodb container already exists (stopped), start it:
+#docker start mongodb
+
+#If it doesn't exist, create & run a new one:
+#docker run -d --name mongodb -p 27017:27017 mongo:7
+
+#If you get a name conflict and want to replace the old container:
+#docker rm -f mongodb
+#docker run -d --name mongodb -p 27017:27017 mongo:7
+
+#Quick checks / connect:
+#docker ps --filter name=mongodb
+#docker exec -it mongodb mongosh
+
 
  #to create a database
- use "name of the db"
+ #use "name of the db"
 
  #to create a collection
-db.createCollection("name of the collection")
+#db.createCollection("name of the collection")
 
 #to insert a document
-db."collectionName".insertOne({Column name: value, Column name: value})
+#db."collectionName".insertOne({Column name: value, Column name: value})
+
+#to insert multiple documents
+#db."collectionName".insertMany([{Column name: value, Column name: value},
+#                             {Column name: value, Column name: value}])
 
 #output the documents
-db."collectionName".find()
+#db."collectionName".find()
+
