@@ -31,4 +31,3 @@ db."collectionName".insertMany([{Column name: value, Column name: value},
 
 #output the documents
 db."collectionName".find()
-
