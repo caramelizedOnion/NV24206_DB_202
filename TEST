@@ -16,18 +16,39 @@ docker ps --filter name=mongodb
 docker exec -it mongodb mongosh
 
 
- #to create a database
+
+#to create a database
  use "name of the db"
 
- #to create a collection
+#to create a collection
 db.createCollection("name of the collection")
+
 
 #to insert a document
 db."collectionName".insertOne({Column name: value, Column name: value})
 
 #to insert multiple documents
-db."collectionName".insertMany([{Column name: value, Column name: value},
-                             {Column name: value, Column name: value}])
+db."collectionName".insertMany([{Column name: value, Column name: value}])
+{Column name: value, Column name: value}])
+
 
 #output the documents
 db."collectionName".find()
+
+
+#to update multiple documents
+db."collectionName".updateMany({condition}, {$set:{Column name: newValue}})
+Example: db.TASK17.updateMany({BusNo:"3"}, {$set:{BusNo:"1"}})
+
+#to update one document(number or alreaady exist)
+db."collectionName".updateOne({condition}, {$inc:{Column name: number}})
+Example: db.TASK18.updateOne({nvno:"02"}, {$inc:{Marks:5}})
+
+#to update a document or insert it if it does not exist
+db."collectionName".updateOne({condition}, {$set:{data}}, {upsert:true})
+
+#to increase a numeric value for all documents
+db."collectionName".updateMany({}, {$inc:{Column name: number}})
+
+#to increase a numeric value for multiple documents
+db."collectionName".updateMany({condition}, {$inc:{Column name: number}})
