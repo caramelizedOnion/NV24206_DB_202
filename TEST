@@ -16,7 +16,6 @@ docker ps --filter name=mongodb
 docker exec -it mongodb mongosh
 
 
-
 #to create a database
  use "name of the db"
 
